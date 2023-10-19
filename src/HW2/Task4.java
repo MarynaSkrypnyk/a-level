@@ -20,10 +20,5 @@ public class Task4 {
         } else {
             System.out.println("Number smaller in modulus " + Math.abs(g));
         }
-
-
-
-
-
     }
 }
