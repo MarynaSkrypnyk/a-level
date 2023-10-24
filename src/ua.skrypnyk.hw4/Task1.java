@@ -17,6 +17,7 @@ public class Task1 {
             array[i] = ((int) (Math.random() *10)+1);
         }
         System.out.println(Arrays.toString(array));
+
     }
 
     public static void average(int[] array) {
