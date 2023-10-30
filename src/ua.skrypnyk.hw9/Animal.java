@@ -4,15 +4,24 @@ public class Animal {
     private String kindOfFood;
     private int hourseOfSleep;
 
-    private Animal(String kindOfFood, int hourseOfSleep){
-        this.kindOfFood = "meat";
-        this.hourseOfSleep = 10;
+   public Animal(String kindOfFood, int hourseOfSleep) {
+        this.kindOfFood = kindOfFood;
+        this.hourseOfSleep = hourseOfSleep;
     }
+
+    public String getKindOfFood() {
+        return kindOfFood;
+    }
+
+    public int getHourseOfSleep() {
+        return hourseOfSleep;
+    }
+
     public void sleep(){
-        System.out.println(kindOfFood);
+        System.out.println("Sleep "+ hourseOfSleep);
     }
     public void eat () {
-        System.out.println(hourseOfSleep);
+        System.out.println("Eat "+ kindOfFood);
     }
 
 
