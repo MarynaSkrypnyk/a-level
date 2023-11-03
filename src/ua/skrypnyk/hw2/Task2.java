@@ -1,4 +1,4 @@
-package src.ua.skrypnyk.hw2;
+package ua.skrypnyk.hw2;
 
 public class Task2 {
     public static double x1 = 1.0;
