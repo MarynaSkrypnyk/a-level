@@ -1,9 +1,8 @@
-package ua.skrypnyk.hw4;
+package src.ua.skrypnyk.hw4;
 
 import java.util.Arrays;
 
 import static java.lang.Math.pow;
-
 
 public class Task1 {
     public static void main(String[] args) {
@@ -17,7 +16,6 @@ public class Task1 {
             array[i] = ((int) (Math.random() *10)+1);
         }
         System.out.println(Arrays.toString(array));
-
     }
 
     public static void average(int[] array) {
@@ -30,17 +28,18 @@ public class Task1 {
         System.out.println("Sum all numbers of array "+ sum);
         System.out.println("Avarage array "+ average);
     }
+
     private static void geometricMean(int[] array) {
-        int multiplication = 1;
+        double multiplication = 1;
         double geometric = 0;
 
-        for (int i = 0; i < array.length; i++) {
-        multiplication = multiplication * array[i];
-        geometric = (double) pow  (multiplication, 1.0 % array.length);
-
+        for (int j : array) {
+            multiplication = multiplication * j;
+            geometric = pow (multiplication, 1.0 / array.length);
         }
+
         System.out.println("Multiplicator all numbers of array "+ multiplication);
-        System.out.println(geometric);
+        System.out.println("Geometric mean array " + geometric);
 
 
     }
