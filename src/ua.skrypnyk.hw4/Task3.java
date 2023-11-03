@@ -1,7 +1,6 @@
-package ua.skrypnyk.hw4;
+package src.ua.skrypnyk.hw4;
 
 import java.util.Arrays;
-
 public class Task3 {
         public static void main(String[] args) {
             int[] array = new int[2000];
@@ -23,5 +22,4 @@ public class Task3 {
             }
             System.out.println(Arrays.toString(array));
         }
-
 }
