@@ -1,5 +1,7 @@
 package ua.skrypnyk.hw2;
 
+import org.ietf.jgss.GSSManager;
+
 import java.util.Scanner;
 public class Task4 {
     public static void main(String[] args) {
@@ -13,12 +15,7 @@ public class Task4 {
         f = sc.nextInt();
         System.out.println("Enter third number: ");
         g = sc.nextInt();
-        if ((Math.abs(d)) < (Math.abs(f)) && (Math.abs(d)) < (Math.abs(g))) {
-            System.out.println ("Number smaller in modulus " + Math.abs(d));
-        } else if ((Math.abs(f)) < (Math.abs(d)) && (Math.abs(f)) < (Math.abs(g))) {
-            System.out.println ("Number smaller in modulus " + Math.abs(f));
-        } else {
-            System.out.println("Number smaller in modulus " + Math.abs(g));
-        }
+
+        System.out.println(d > g? d > f ? "Fist number bigger" : "Third number bigger": f > g ?"Second number bigger" : "Third number bigger");
     }
 }
