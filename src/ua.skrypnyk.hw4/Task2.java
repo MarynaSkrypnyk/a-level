@@ -1,4 +1,4 @@
-package ua.skrypnyk.hw4;
+package src.ua.skrypnyk.hw4;
 
 import java.util.Arrays;
 
@@ -32,11 +32,9 @@ public class Task2 {
         int count = 0;
         for (int i = 2; i <= array.length; i++) {
             boolean isPrime = true;
-
             if (isPrime)
                 count++;
         }
         System.out.println("Number all simple number in array "+ count);
-
     }
 }
