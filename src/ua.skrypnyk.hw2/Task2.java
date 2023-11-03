@@ -21,9 +21,9 @@ public class Task2 {
 
     double perimeter = lenghtA + lenghtB + lenghtC;
     double perimeterHalf = perimeter / 2.0;
-    double square = Math.sqrt(perimeterHalf * (perimeterHalf - lenghtA) * (perimeterHalf - lenghtB) * (perimeterHalf - lenghtC));
+    double squareTriangle = Math.sqrt(perimeterHalf * (perimeterHalf - lenghtA) * (perimeterHalf - lenghtB) * (perimeterHalf - lenghtC));
 
-    return square;
+    return squareTriangle;
 
     }
 }
