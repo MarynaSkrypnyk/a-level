@@ -7,8 +7,8 @@ public class Task2 {
     public static void main(String[] args) {
         int[] array = new int[20];
         fill(array);
-        isSorted(array);
-        System.out.println(isSorted(array));
+        decreasingString(array);
+        System.out.println(decreasingString(array));
     }
 
     private static void fill(int[] array) {
@@ -18,7 +18,7 @@ public class Task2 {
         System.out.println(Arrays.toString(array));
     }
 
-    private static boolean isSorted(int[] array) {
+    private static boolean decreasingString (int[] array) {
         for (int i = 0; i < array.length; i++) {
             if (array[i] < array[i + 1]) {
                 return false;
