@@ -24,5 +24,9 @@ public class Animal {
         public void eat() {
             System.out.println("Eat " + kindOfFood);
         }
+
+        public final void walk(){
+        System.out.println("walk");
+    }
     }
 

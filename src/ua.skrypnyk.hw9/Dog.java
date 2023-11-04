@@ -12,7 +12,5 @@ public class Dog extends Animal {
     public void eat() {
         System.out.println("Birds");
     }
-    public final void walk(){
-        System.out.println("walk");
-    }
+
 }
