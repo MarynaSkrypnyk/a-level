@@ -1,11 +1,8 @@
-package ua.skrypnyk.hw10;
+package src.ua.skrypnyk.hw10;
 
-public class Triangle extends Shapes {
+public class Triangle extends Shape {
     private double perimeter;
     private double area;
-    public static int sideA = 15;
-    public static int sideB = 20;
-    public static int sideC = 18;
 
     public Triangle(double perimeter, double area) {
         this.perimeter = perimeter;
@@ -23,30 +20,33 @@ public class Triangle extends Shapes {
     }
 
     @Override
-   public void area() {
-      areaTriangleForHeronFormula();
-      areaTriangleForTwoSidesPerSineAngle();
-      areaTriangleForBaseHeight();
+    public void perimeter() {
+        int sideA = 16;
+        int sideB = 17;
+        double sideC = 19.1;
+        double perimeter = sideA + sideB + sideC;
+        System.out.println("Triangle perimeter = "+ perimeter);
+    }
 
-      System.out.println("areaTriangleForHeronFormula " + areaTriangleForHeronFormula());
-      System.out.println("areaTriangleForTwoSidesPerSineAngle "+ areaTriangleForTwoSidesPerSineAngle());
-      System.out.println("areaTriangleForBaseHeight "+ areaTriangleForBaseHeight());
-  }
+    @Override
+    public double area() {
+        System.out.println("areaTriangleForHeronFormula = "+ area(16, 17, 19));
+        System.out.println("areaTriangleForTwoSidesPerSineAngle = " + area(16,17));
+        System.out.println("areaTriangleForBaseHeight = " + area(16, 17));
+        return area;
+    }
+    public double area (int sideA, int sideB, int sideC) {
+        double perimeter = (sideA + sideB + sideC) / (double) 2;
+        return area  = Math.sqrt(perimeter * ((perimeter - sideA) * (perimeter - sideB) * (perimeter - sideC)));
+    }
 
-   static double areaTriangleForHeronFormula() {
-        double perimeter = (sideA + sideB + sideC)/(double)2;
-        double heronFormula = Math.sqrt(perimeter * ((perimeter - sideA) * (perimeter - sideB) * (perimeter - sideC)));
-     return heronFormula;
-   }
-   static double areaTriangleForTwoSidesPerSineAngle (){
-      double twoSidesPerSineAngles = 1/(double)2 * (sideA * sideB * Math.sin(45));
-   return twoSidesPerSineAngles;
-   }
-   static double areaTriangleForBaseHeight (){
-        double perimeter = (sideA + sideB + sideC)/(double)2;
-        double height = 2/(double)sideC * Math.sqrt(perimeter * ((perimeter - sideA) * (perimeter - sideB) * (perimeter - sideC)));
-        double baseHeight = 1/(double)2 * (sideA * height);
-    return baseHeight;
+    public double area (int sideA, int sideB) {
+        return area = Math.sqrt(1/(double)2) * (sideA * sideB * Math.sin(45));
+    }
+
+    public double area (int sideA, double height){
+        return area = 1/(double)2 * (sideA * height);
+
    }
 }
 
