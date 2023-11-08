@@ -22,7 +22,6 @@ public class Shape {
     public double getPerimeter() {
         return perimeter;
     }
-
     public double getArea() {
         return area;
     }

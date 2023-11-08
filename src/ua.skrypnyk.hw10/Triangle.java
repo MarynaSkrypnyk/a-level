@@ -1,5 +1,7 @@
 package src.ua.skrypnyk.hw10;
 
+import java.util.Scanner;
+
 public class Triangle extends Shape {
     private double perimeter;
     private double area;
@@ -32,7 +34,7 @@ public class Triangle extends Shape {
     public double area() {
         System.out.println("areaTriangleForHeronFormula = "+ area(16, 17, 19));
         System.out.println("areaTriangleForTwoSidesPerSineAngle = " + area(16,17));
-        System.out.println("areaTriangleForBaseHeight = " + area(16, 17));
+        System.out.println("areaTriangleForBaseHeight = " + area(16, -17.9));
         return area;
     }
     public double area (int sideA, int sideB, int sideC) {
@@ -45,8 +47,16 @@ public class Triangle extends Shape {
     }
 
     public double area (int sideA, double height){
-        return area = 1/(double)2 * (sideA * height);
-
+            try {
+                if (height <= 0) {
+                    throw new CheckedException("Triangle height should be bigger null");
+                }
+                System.out.println("Triangle perimeter = " + 1/(double)2 * sideA * height);
+            } catch (CheckedException exception) {
+                exception.printStackTrace();
+                System.out.println(exception.getMessage());
+            }
+     return area;
    }
 }
 
