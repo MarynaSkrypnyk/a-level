@@ -7,7 +7,6 @@ public class Main {
         Shape circle = new Circle(20, 20);
         Shape triangle = new Triangle(20, 18);
 
-
         circle.area();
         square.area();
         triangle.area();

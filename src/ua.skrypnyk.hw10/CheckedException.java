@@ -4,4 +4,5 @@ public class CheckedException extends RuntimeException{
         CheckedException(String message){
             super(message);
         }
+
 }

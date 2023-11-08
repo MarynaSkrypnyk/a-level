@@ -1,6 +1,7 @@
 package src.ua.skrypnyk.hw10;
 
 public class Shape {
+
     private double perimeter;
     private double area;
 

@@ -36,6 +36,7 @@ public class Square extends Shape{
         }
         return area;
     }
+
     @Override
     public void perimeter() {
         perimeter = side + side + side + side;
