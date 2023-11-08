@@ -45,7 +45,6 @@ public class Triangle extends Shape {
     public double area (int sideA, int sideB) {
         return area = Math.sqrt(1/(double)2) * (sideA * sideB * Math.sin(45));
     }
-
     public double area (int sideA, double height){
             try {
                 if (height <= 0) {
