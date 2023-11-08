@@ -13,6 +13,6 @@ public class Task4 {
         System.out.println("Enter third number: ");
         g = sc.nextInt();
 
-        System.out.println(d > g? d > f ? "Fist number bigger" : "Third number bigger": f > g ?"Second number bigger" : "Third number bigger");
+        System.out.println(Math.abs(d) > Math.abs(g)? Math.abs(d) > Math.abs(f) ? "Fist number bigger" : "Third number bigger": Math.abs(f) > Math.abs(g) ?"Second number bigger" : "Third number bigger");
     }
 }
