@@ -10,38 +10,31 @@ public class Task1 {
         fill(array);
         average(array);
         geometricMean(array);
+
+        System.out.println(Arrays.toString(array));
+        System.out.println("Average = " + average(array));
+        System.out.println("GeometricMean = " + geometricMean(array));
     }
     private static void fill(int[] array) {
         for (int i = 0; i < array.length; i++) {
             array[i] = ((int) (Math.random() *10)+1);
         }
-        System.out.println(Arrays.toString(array));
     }
 
-    public static void average(int[] array) {
+    public static double average(int[] array) {
         int sum = 0;
-        double average = 0;
         for (int num : array) {
             sum += num;
-            average = (double) sum / array.length;
         }
-        System.out.println("Sum all numbers of array "+ sum);
-        System.out.println("Avarage array "+ average);
+        return (double) sum / array.length;
     }
 
-    private static void geometricMean(int[] array) {
+    private static double geometricMean(int[] array) {
         double multiplication = 1;
-        double geometric = 0;
-
         for (int j : array) {
             multiplication = multiplication * j;
-            geometric = pow (multiplication, 1.0 / array.length);
         }
-
-        System.out.println("Multiplicator all numbers of array "+ multiplication);
-        System.out.println("Geometric mean array " + geometric);
-
-
+        return pow (multiplication, 1.0 / array.length);
     }
 }
 
