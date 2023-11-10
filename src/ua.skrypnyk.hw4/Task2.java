@@ -4,37 +4,38 @@ import java.util.Arrays;
 
 public class Task2 {
     public static void main(String[] args) {
-    int[] array = new int[1000];
-    fill(array);
-    simpleNumber(array);
-    counter (array);
-    }
-    private static void fill(int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            array[i] = ((int) (Math.random() *1000)+1);
-        }
-        System.out.println(Arrays.toString(array));
-    }
-    private static void simpleNumber(int[] array) {
-        for (int i = 2; i <= array.length; i++) {
-            boolean isPrime = true;
+        int[] array = new int[1000];
 
-                if (i % 2 == 0 ) {
-                    isPrime = false;
-            }
-            if (isPrime)
-            {
-                System.out.println (i );
-            }
+        fillArray(array);
+        howMuchSimpleNumberInArray(array);
+        System.out.println(Arrays.toString(array));
+        System.out.println("Amount simple number in array " + howMuchSimpleNumberInArray(array));
+    }
+
+    private static void fillArray(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            array[i] = ((int) (Math.random() * 1000) + 1);
         }
     }
-    private static void counter(int[] array) {
+
+    // count simple number
+    private static int howMuchSimpleNumberInArray(int[] array) {
         int count = 0;
         for (int i = 2; i <= array.length; i++) {
             boolean isPrime = true;
-            if (isPrime)
+
+            for (int j = 2; j < i; j++) {
+                if (i % j == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            if (isPrime) {
                 count++;
+            }
         }
-        System.out.println("Number all simple number in array "+ count);
+        return count;
     }
 }
+
+
