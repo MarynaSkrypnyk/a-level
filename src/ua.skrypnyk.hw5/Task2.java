@@ -8,6 +8,7 @@ public class Task2 {
         int[] array = new int[20];
         fill(array);
         decreasingString(array);
+        System.out.println(Arrays.toString(array));
         System.out.println(decreasingString(array));
     }
 
@@ -15,7 +16,6 @@ public class Task2 {
         for (int i = 0; i < array.length; i++) {
             array[i] = ((int) (Math.random() * 20) + 1);
         }
-        System.out.println(Arrays.toString(array));
     }
 
     private static boolean decreasingString (int[] array) {
