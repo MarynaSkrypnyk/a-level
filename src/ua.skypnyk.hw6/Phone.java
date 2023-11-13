@@ -22,7 +22,11 @@ public class Phone {
     public static void main(String[] args) {
         Phone firstPhone = new Phone (42_42_42,"Samsung",12.1);
         Phone secondPhone= new Phone(43_43_43,"Apple");
+        secondPhone.weight = 12.2;
         Phone thirdPhone = new Phone();
+        thirdPhone.number = 44_44_44;
+        thirdPhone.model = "Xiaomi";
+        thirdPhone.weight = 12.3;
 
         System.out.println(firstPhone);
         System.out.println(secondPhone);
