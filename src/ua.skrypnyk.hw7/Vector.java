@@ -12,10 +12,6 @@ public class Vector {
         this.y = y;
         this.z = z;
     }
-
-
-
-
     public static void main(String[] args) {
         int bx = 4;
         int by = 6;
@@ -33,7 +29,7 @@ public class Vector {
         int [] differenceVectors = differenceVectors(vector.x, vector.y, vector.z, bx, by, bz);
         System.out.println("Difference vectors " + Arrays.toString(differenceVectors));
 
-        Vector [] vectors = generate(3);
+        Vector [] vectors = generate(2);
         System.out.println(Arrays.toString(vectors));
 
     }
@@ -67,16 +63,21 @@ public class Vector {
         int differenceVectorsPointZ = z - bz;
         return new int [] {differenceVectorsPointA, differenceVectorsPointY, differenceVectorsPointZ};
     }
-//    статический метод, который принимает целое число n, и возвращает массив случайных
-//векторов размером n.
 
-public static Vector[] generate(int n ){
+    public static Vector[] generate(int n){
     Vector[] vectors = new Vector[n];
-    for(int i = 0; i < vectors.length; i++){
-        vectors [i] = new Vector ((int) Math.random(), (int) Math.random(), (int) Math.random());
+    for(int i = 0; i < n; i++){
+        vectors [i] = new Vector ((int) (Math.random()* 8), (int) (Math.random()*8), (int) (Math.random()*8));
     }
-
     return vectors;
 }
+    @Override
+    public String toString() {
+        return "Vector{" +
+                "x=" + x +
+                ", y=" + y +
+                ", z=" + z +
+                '}';
+    }
 
 }
