@@ -28,5 +28,5 @@ public class Animal {
         public final void walk(){
         System.out.println("walk");
     }
-    }
+}
 
