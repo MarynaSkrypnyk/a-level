@@ -1,20 +1,19 @@
 package src.ua.skrypnyk.hw12;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
-        ArrayList <Integer> arrayList = new ArrayList<>(1);
-        arrayList.add(2);
+        ArrayList <Integer> arrayList = new ArrayList<>(3);
 
+        arrayList.add(4);
         System.out.println(arrayList);
-        System.out.println(arrayList.isContains(1));
 
-        ArrayList <Integer> arrayList1 = new ArrayList<>(3);
-        arrayList1.indexOf(3);
-        arrayList1.indexOf(4);
+        arrayList.add(18,2);
+        System.out.println(arrayList);
 
-        ArrayList <Integer> arrayList2 = new ArrayList<>(1);
-        arrayList2.add(2,0);
-        System.out.println(arrayList2);
+        arrayList.indexOf(18);
 
+        System.out.println(arrayList.isContains(18));
     }
 }
