@@ -3,6 +3,11 @@ package src.ua.skrypnyk.hw10;
 public class Circle extends Shape {
     private double perimeter;
     private double area;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
     private double radius = 4;
 
     public Circle(double perimeter, double area) {
