@@ -8,6 +8,7 @@ public class Dog extends Animal {
         this.kindOfFood = kindOfFood;
         this.hourseOfSleep = hourseOfSleep;
     }
+
     @Override
     public void eat() {
         System.out.println("Birds");
