@@ -5,8 +5,13 @@ import java.util.Arrays;
 
 public class Task1 {
     public static void main(String[] args) {
-        int [] [] array = new int[4][3];
-        fill(array);
+        int [][] array = {{1,2,3},{4,5},{6,7,8,9,10,},{11,12,13},{14,15},{16,17,18}};
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                System.out.printf("%d ", array[i][j]);
+            }
+            System.out.println();
+        }
         negativeNumbers(array);
     }
     private static void negativeNumbers(int[][] array) {
@@ -19,30 +24,5 @@ public class Task1 {
                 System.out.print(Arrays.toString(array [i]));
             }
         }
-    private static void fill(int[][] array) {
-
-        array[0][0] = 1;
-        array[0][1] = 2;
-        array[0][2] = 3;
-
-        array[1][0] = 4;
-        array[1][1] = 5;
-        array[1][2] = 6;
-
-        array[2][0] = 7;
-        array[2][1] = 8;
-        array[2][2] = 9;
-
-        array[3][0] = 10;
-        array[3][1] = 11;
-        array[3][2] = 12;
-
-        for (int[] ints : array) {
-            for (int anInt : ints) {
-                System.out.print(anInt + "\t");
-            }
-            System.out.println();
-        }
-    }
 }
 
