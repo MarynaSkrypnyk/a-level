@@ -6,31 +6,21 @@ import java.util.Scanner;
 public class Square extends Shape{
     private double perimeter;
     private double area;
-    private double side = -4;
+    private double side;
 
-    public Square(double perimeter, double area) {
-        this.perimeter = perimeter;
-        this.area = area;
-    }
-    @Override
-    public double getPerimeter() {
-        return perimeter;
-    }
-
-    @Override
-    public double getArea() {
-        return area;
-    }
+    public Square(double side) {
+        this.side = side;
+        }
 
     @Override
     public double area() {
         try {
 
             if (side <= 0) {
-                throw new CheckedException("Side should be bigger null");
+                throw new isAreaOfShapeValid("Side should be bigger null");
             }
             System.out.println("Square area = "+ side * side);
-        } catch (CheckedException exception) {
+        } catch (isAreaOfShapeValid exception) {
             exception.printStackTrace();
             System.out.println(exception.getMessage());
         }

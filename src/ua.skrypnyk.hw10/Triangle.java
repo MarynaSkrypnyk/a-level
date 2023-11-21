@@ -5,27 +5,17 @@ import java.util.Scanner;
 public class Triangle extends Shape {
     private double perimeter;
     private double area;
-
-    public Triangle(double perimeter, double area) {
-        this.perimeter = perimeter;
-        this.area = area;
-    }
-
-    @Override
-    public double getPerimeter() {
-        return perimeter;
-    }
-
-    @Override
-    public double getArea() {
-        return area;
+    int sideA;
+    int sideB;
+    int sideC;
+    public Triangle(int sideA, int sideB, int sideC) {
+        this.sideA = sideA;
+        this.sideB = sideB;
+        this.sideC = sideC;
     }
 
     @Override
     public void perimeter() {
-        int sideA = 16;
-        int sideB = 17;
-        double sideC = 19.1;
         double perimeter = sideA + sideB + sideC;
         System.out.println("Triangle perimeter = "+ perimeter);
     }
@@ -49,10 +39,10 @@ public class Triangle extends Shape {
     public double area (int sideA, double height){
             try {
                 if (height <= 0) {
-                    throw new CheckedException("Triangle height should be bigger null");
+                    throw new isAreaOfShapeValid("Triangle height should be bigger null");
                 }
                 System.out.println("Triangle perimeter = " + 1/(double)2 * sideA * height);
-            } catch (CheckedException exception) {
+            } catch (isAreaOfShapeValid exception) {
                 exception.printStackTrace();
                 System.out.println(exception.getMessage());
             }

@@ -3,9 +3,9 @@ package src.ua.skrypnyk.hw10;
 public class Main {
 
     public static void main(String[] args) {
-        Shape square = new Square(15, 19);
-        Shape circle = new Circle(20, 20);
-        Shape triangle = new Triangle(20, 18);
+        Square square = new Square(6);
+        Circle circle = new Circle(6);
+        Triangle triangle = new Triangle(5,6,7);
 
         circle.area();
         square.area();
