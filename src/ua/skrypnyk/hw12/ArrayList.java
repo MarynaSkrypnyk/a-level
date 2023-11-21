@@ -1,11 +1,11 @@
 package src.ua.skrypnyk.hw12;
 
 import java.util.Arrays;
-import java.util.List;
 
 public class ArrayList<T> {
     private Object[] array;
     private int size;
+    int count = 0;
 
     @Override
     public String toString() {
@@ -19,24 +19,25 @@ public class ArrayList<T> {
 
     //Add element to the end of array {1,2,3} -> {1,2,3,4}
     void add(T element) {
-        array = new Object[array.length + 1];
-        array[array.length - 1] = element;
+        array[count++] = element;
+        Object[] destarray = ((T[]) Arrays.copyOf(array, array.length + 1));
+        destarray [array.length] = element;
+        array = destarray;
     }
 
-    //    Add element to given position of array {1,2,3} -> {1,4,2,3}
     void add(T element, int index) {
         System.arraycopy(array, index, array, index + 1, size - index);
         array[index] = element;
     }
 
-    //    Returns index of the given element, if element doesnt exist return -1 -> (HERE MISTAKE)
-    void indexOf(T element) {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == element) {
-                System.out.println(i);
+    int indexOf(T element) {
+        for (int index = 0; index < array.length; index++) {
+            if (element == array[index]) {
+                return index;
+
             }
         }
-        System.out.println(-1);
+        return -1;
     }
 
     boolean isContains(T element) {
