@@ -3,27 +3,12 @@ package src.ua.skrypnyk.hw10;
 public class Triangle extends Shape {
     private double perimeter;
     private double area;
-
-    public Triangle(double perimeter, double area) {
-        this.perimeter = perimeter;
-        this.area = area;
-    }
-
-    @Override
-    public double getPerimeter() {
-        return perimeter;
-    }
-
-    @Override
-    public double getArea() {
-        return area;
-    }
+    int sideA = 16;
+    int sideB = 17;
+    double sideC = 19.1;
 
     @Override
     public void perimeter() {
-        int sideA = 16;
-        int sideB = 17;
-        double sideC = 19.1;
         double perimeter = sideA + sideB + sideC;
         System.out.println("Triangle perimeter = "+ perimeter);
     }
@@ -32,7 +17,7 @@ public class Triangle extends Shape {
     public double area() {
         System.out.println("areaTriangleForHeronFormula = "+ area(16, 17, 19));
         System.out.println("areaTriangleForTwoSidesPerSineAngle = " + area(16,17));
-        System.out.println("areaTriangleForBaseHeight = " + area(16, 17));
+        System.out.println("areaTriangleForBaseHeight = " + area(16, 17.2));
         return area;
     }
     public double area (int sideA, int sideB, int sideC) {

@@ -5,20 +5,6 @@ public class Square extends Shape{
     private double area;
     private double side = 4;
 
-    public Square(double perimeter, double area) {
-        this.perimeter = perimeter;
-        this.area = area;
-    }
-    @Override
-    public double getPerimeter() {
-        return perimeter;
-    }
-
-    @Override
-    public double getArea() {
-        return area;
-    }
-
     @Override
     public double area() {
         area = side * side;
