@@ -3,7 +3,10 @@ package src.ua.skrypnyk.hw10;
 public  class Circle extends Shape {
     private double perimeter;
     private double area;
-    private double radius = 4;
+    private double radius;
+    public Circle(double radius) {
+        this.radius = radius;
+    }
 
     @Override
     public double area() {

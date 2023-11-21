@@ -3,22 +3,17 @@ package src.ua.skrypnyk.hw10;
 public class Main {
 
     public static void main(String[] args) {
-        Square square = new Square();
-        Circle circle = new Circle();
-        Triangle triangle = new Triangle();
+        Square square = new Square(7);
+        Circle circle = new Circle(5);
+        Triangle triangle = new Triangle(7,5,8,18);
 
-        square.perimeter();
-        circle.perimeter();
-        triangle.perimeter();
-
-        triangle.area();
-        circle.area();
-        square.area();
-
+        double areaSquare = square.area();
+        double areaCircle = circle.area();
+        double areaTriangle = triangle.area();
 
         System.out.println(
-                square.area() > circle.area()? square.area() > triangle.area() ? "square area bigger" : "triangle area bigger":
-                triangle.area() > circle.area() ?"triangle area bigger" : "circle area bigger");
+                areaSquare > areaCircle? areaSquare > areaTriangle ? "square area bigger" : "triangle area bigger":
+                        areaTriangle > areaCircle ?"triangle area bigger" : "circle area bigger");
 
         }
     }

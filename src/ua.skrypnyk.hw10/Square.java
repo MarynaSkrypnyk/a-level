@@ -3,6 +3,11 @@ package src.ua.skrypnyk.hw10;
 public class Square extends Shape{
     private double perimeter;
     private double area;
+
+    public Square(double side) {
+        this.side = side;
+    }
+
     private double side = 4;
 
     @Override
