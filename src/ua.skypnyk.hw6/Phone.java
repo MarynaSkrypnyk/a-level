@@ -36,18 +36,15 @@ public class Phone {
         System.out.println("Call "+ secondPhone.receiveCall("Andrey"));
         System.out.println("Call " + thirdPhone.receiveCall("Valia"));
 
-        System.out.println(firstPhone.getNumber(firstPhone.number));
-        System.out.println(secondPhone.getNumber(secondPhone.number));
-        System.out.println(firstPhone.getNumber(thirdPhone.number));
+        System.out.println(firstPhone.number);
+        System.out.println(secondPhone.number);
+        System.out.println(thirdPhone.number);
     }
     public String receiveCall(String name){
         this.model = name;
         return name;
     }
-    public int getNumber (int number){
-        this.number = number;
-        return number;
-    }
+
     @Override
     public String toString() {
         return "Phone{" +
