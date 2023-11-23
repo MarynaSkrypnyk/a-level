@@ -34,5 +34,4 @@ public class Square extends Shape implements Comparator <Square> {
     public int compare(Square o1, Square o2) {
         return (int) (o1.area()-o2.area());
     }
-
 }
