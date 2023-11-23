@@ -5,6 +5,9 @@ public class Phone {
     int number;
     String model;
     double weight;
+    public int getNumber (int number){
+        return number;
+    }
 
     public Phone(int number, String model, double weight) {
         this.number = number;
@@ -36,9 +39,9 @@ public class Phone {
         System.out.println("Call "+ secondPhone.receiveCall("Andrey"));
         System.out.println("Call " + thirdPhone.receiveCall("Valia"));
 
-        System.out.println(firstPhone.number);
-        System.out.println(secondPhone.number);
-        System.out.println(thirdPhone.number);
+        System.out.println(firstPhone.getNumber(firstPhone.number));
+        System.out.println(secondPhone.getNumber(secondPhone.number));
+        System.out.println(firstPhone.getNumber(thirdPhone.number));
     }
     public String receiveCall(String name){
         this.model = name;
