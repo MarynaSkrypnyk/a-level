@@ -6,23 +6,24 @@ public class Vector {
     public int x;
     public int y;
     public int z;
-    public Vector (int ax, int ay, int az) {
-        this.x = ax;
-        this.y = ay;
-        this.z = az;
+    public Vector(int x, int y, int z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
     }
 
     public static void main(String[] args) {
 
-        Vector vector = new Vector(3,5,9);
+        Vector vector = new Vector(5,6,7);
+        Vector vectorTwo = new Vector(2,3,4);
 
         System.out.println("vector length "+ vector.countVectorLength(vector));
-        System.out.println("countVectorProduct"+ vector.countVectorProduct(vector, 2,2,2));
-        System.out.println("cosinus between two vector " + vector.cosinusBetweenTwoVector(vector,2,2,2));
-        System.out.println("sumVectors" + vector.sumVectors(vector,2,2,2));
-        System.out.println("differenceVectors"+vector.differenceVectors(vector,2,2,2));
-        Vector [] vectors = generate(2);
-        System.out.println(Arrays.toString(vectors));
+        System.out.println("countVectorProduct"+ vector.countVectorProduct(vectorTwo));
+        System.out.println("cosinus between two vector " + vector.cosinusBetweenTwoVector(vectorTwo));
+        System.out.println("sumVectors" + vector.sumVectors(vectorTwo));
+        System.out.println("differenceVectors"+vector.differenceVectors(vectorTwo));
+//        Vector [] vectors = generate(2);
+//        System.out.println(Arrays.toString(vectors));
 
     }
 
@@ -30,32 +31,32 @@ public class Vector {
         double vectorLength = Math.sqrt(Math.pow(x,2)+ Math.pow(y,2)+ Math.pow(z,2));
         return vectorLength;
     }
-    public Vector countVectorProduct(Vector vector, int bx, int by, int bz) {
+    public Vector countVectorProduct(Vector vector) {
         return new Vector(
-                bz * vector.y - by * vector.z,
-                bx * vector.z - bz * vector.x,
-                by * vector.x - bx * vector.y
-        );
+                y * vector.z - z * vector.y,
+                z * vector.x - x * vector.z,
+                x * vector.y - y * vector.x);
     }
-    public double cosinusBetweenTwoVector (Vector vector, int bx, int by, int bz){
-        int sklarProduct = x * bx + y * by + z * bz;
-        double vectorLengthSeconVector = Math.sqrt(Math.pow(bx,2)+ Math.pow(by,2)+ Math.pow(bz,2));
+
+    public double cosinusBetweenTwoVector (Vector vector){
+        int sklarProduct = vector.x * x + vector.y * y + vector.z * z;
+        double vectorLengthSeconVector = Math.sqrt(Math.pow(x,2)+ Math.pow(y,2)+ Math.pow(z,2));
         double cosinusBetweenTwoVector = (sklarProduct/(countVectorLength(vector) * vectorLengthSeconVector));
         return cosinusBetweenTwoVector;
     }
-    public Vector sumVectors(Vector vector, int bx, int by, int bz) {
+    public Vector sumVectors(Vector vector) {
         return new Vector(
-                bx + vector.x,
-                by + vector.y,
-                bz + vector.z
+                x + vector.x,
+                y + vector.y,
+                z + vector.z
         );
     }
 
-    public Vector differenceVectors(Vector vector, int bx, int by, int bz) {
+    public Vector differenceVectors(Vector vector) {
         return new Vector(
-                vector.x - bx,
-                vector.y - by,
-                vector.z - bz
+                vector.x - x,
+                vector.y - y,
+                vector.z - z
         );
     }
 
