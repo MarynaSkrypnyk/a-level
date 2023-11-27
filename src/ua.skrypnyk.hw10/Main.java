@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         Square square = new Square(7);
         Circle circle = new Circle(5);
-        Triangle triangle = new Triangle(7,5,8,18);
+        Triangle triangle = new Triangle(76,56,86,18,30);
 
         double areaSquare = square.area();
         double areaCircle = circle.area();

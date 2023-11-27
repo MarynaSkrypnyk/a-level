@@ -15,9 +15,8 @@ public  class Circle extends Shape {
         return area;
     }
     @Override
-    public void perimeter() {
-        double perimeter = 18;
-        perimeter = 2 * Math.PI * radius;
-        System.out.println("Circle perimeter = " + perimeter);
+    public double perimeter() {
+       double perimeter = 2 * Math.PI * radius;
+       return  perimeter;
     }
 }

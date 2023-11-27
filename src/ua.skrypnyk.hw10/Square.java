@@ -8,7 +8,7 @@ public class Square extends Shape{
         this.side = side;
     }
 
-    private double side = 4;
+    private double side;
 
     @Override
     public double area() {
@@ -18,8 +18,8 @@ public class Square extends Shape{
     }
 
     @Override
-    public void perimeter() {
+    public double perimeter() {
         perimeter = side + side + side + side;
-        System.out.println("Square perimeter= "+ perimeter);
+       return perimeter;
     }
 }

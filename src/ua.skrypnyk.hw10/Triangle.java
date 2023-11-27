@@ -7,25 +7,27 @@ public class Triangle extends Shape {
     int sideB;
     int sideC;
     double height;
+    double angle;
 
-    public Triangle(int sideA, int sideB, int sideC,double height) {
+    public Triangle(int sideA, int sideB, int sideC,double height, double angle) {
         this.sideA = sideA;
         this.sideB = sideB;
         this.sideC = sideC;
         this.height = height;
+        this.angle = angle;
     }
 
     @Override
-    public void perimeter() {
+    public double perimeter() {
         double perimeter = sideA + sideB + sideC;
-        System.out.println("Triangle perimeter = "+ perimeter);
+       return perimeter;
     }
 
     @Override
     public double area() {
-        System.out.println("areaTriangleForHeronFormula = "+ area(16, 17, 19));
-        System.out.println("areaTriangleForTwoSidesPerSineAngle = " + area(16,17));
-        System.out.println("areaTriangleForBaseHeight = " + area(16, 17.2));
+       area(sideA,sideB,sideC);
+       area(sideA,sideB, angle);
+       area(sideA,height);
         return area;
     }
 
@@ -38,8 +40,8 @@ public class Triangle extends Shape {
         return area  = Math.sqrt(perimeter * ((perimeter - sideA) * (perimeter - sideB) * (perimeter - sideC)));
     }
 
-    public double area (int sideA, int sideB) {
-        return area = Math.sqrt(1/(double)2) * (sideA * sideB * Math.sin(45));
+    public double area (int sideA, int sideB, double angle) {
+        return area = Math.sqrt(1/(double)2) * (sideA * sideB * Math.sin(angle));
     }
 
     public double area (int sideA, double height){
