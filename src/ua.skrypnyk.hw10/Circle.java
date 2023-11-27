@@ -1,7 +1,5 @@
 package src.ua.skrypnyk.hw10;
 
-import java.util.Scanner;
-
 public class Circle extends Shape {
     private double perimeter;
     private double area;
@@ -10,15 +8,15 @@ public class Circle extends Shape {
         this.radius = radius;
     }
 
-    double radius = 11.1;
+    double radius;
     @Override
     public double area() {
         try {
             if (radius <= 0) {
-                throw new isAreaOfShapeValid("Radius should be positive");
+                throw new InvalidDataException("Radius should be positive");
             }
             System.out.println(Math.PI * radius * radius);
-        } catch (isAreaOfShapeValid exception) {
+        } catch (InvalidDataException exception) {
             exception.printStackTrace();
             System.out.println(exception.getMessage());
         }
@@ -27,10 +25,9 @@ public class Circle extends Shape {
 
 
     @Override
-    public void perimeter() {
-        double perimeter = 18;
+    public double perimeter() {;
         perimeter = 2 * Math.PI * radius;
-        System.out.println("Circle perimeter = " + perimeter);
+        return perimeter;
     }
 
 }

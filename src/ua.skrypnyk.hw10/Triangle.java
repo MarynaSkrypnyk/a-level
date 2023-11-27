@@ -1,30 +1,33 @@
 package src.ua.skrypnyk.hw10;
 
-import java.util.Scanner;
-
 public class Triangle extends Shape {
     private double perimeter;
     private double area;
     int sideA;
     int sideB;
     int sideC;
-    public Triangle(int sideA, int sideB, int sideC) {
+    double angle;
+    double height;
+    public Triangle(int sideA, int sideB, int sideC, double angle, double height ) {
         this.sideA = sideA;
         this.sideB = sideB;
         this.sideC = sideC;
+        this.angle = angle;
+        this.height = height;
+
     }
 
     @Override
-    public void perimeter() {
-        double perimeter = sideA + sideB + sideC;
-        System.out.println("Triangle perimeter = "+ perimeter);
+    public double perimeter() {
+       double perimeter = sideA + sideB + sideC;
+       return perimeter;
     }
 
     @Override
     public double area() {
-        System.out.println("areaTriangleForHeronFormula = "+ area(16, 17, 19));
-        System.out.println("areaTriangleForTwoSidesPerSineAngle = " + area(16,17));
-        System.out.println("areaTriangleForBaseHeight = " + area(16, -17.9));
+       area(sideA,sideB,sideC);
+       area(sideA,sideB,angle);
+       area(sideA,height);
         return area;
     }
     public double area (int sideA, int sideB, int sideC) {
@@ -32,17 +35,17 @@ public class Triangle extends Shape {
         return area  = Math.sqrt(perimeter * ((perimeter - sideA) * (perimeter - sideB) * (perimeter - sideC)));
     }
 
-    public double area (int sideA, int sideB) {
-        return area = Math.sqrt(1/(double)2) * (sideA * sideB * Math.sin(45));
+    public double area (int sideA, int sideB, double angle) {
+        return area = Math.sqrt(1/(double)2) * (sideA * sideB * Math.sin(angle));
     }
 
     public double area (int sideA, double height){
             try {
                 if (height <= 0) {
-                    throw new isAreaOfShapeValid("Triangle height should be bigger null");
+                    throw new InvalidDataException("Triangle height should be bigger null");
                 }
                 System.out.println("Triangle perimeter = " + 1/(double)2 * sideA * height);
-            } catch (isAreaOfShapeValid exception) {
+            } catch (InvalidDataException exception) {
                 exception.printStackTrace();
                 System.out.println(exception.getMessage());
             }

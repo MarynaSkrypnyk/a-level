@@ -1,7 +1,5 @@
 package src.ua.skrypnyk.hw10;
 
-import java.util.Scanner;
-
 //Perimeter and area should be calculated
 public class Square extends Shape{
     private double perimeter;
@@ -17,10 +15,10 @@ public class Square extends Shape{
         try {
 
             if (side <= 0) {
-                throw new isAreaOfShapeValid("Side should be bigger null");
+                throw new InvalidDataException("Side should be bigger null");
             }
             System.out.println("Square area = "+ side * side);
-        } catch (isAreaOfShapeValid exception) {
+        } catch (InvalidDataException exception) {
             exception.printStackTrace();
             System.out.println(exception.getMessage());
         }
@@ -28,8 +26,8 @@ public class Square extends Shape{
     }
 
     @Override
-    public void perimeter() {
+    public double perimeter() {
         perimeter = side + side + side + side;
-        System.out.println("Square perimeter= "+ perimeter);
+       return perimeter;
     }
 }
