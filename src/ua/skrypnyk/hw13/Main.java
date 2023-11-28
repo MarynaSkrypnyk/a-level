@@ -5,16 +5,19 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-//        Comparator <Shape> perimeterShapesComparator = (Shape o1, Shape o2) -> {
-//            return (int) (o1.area() - o2.area());
-//        };
-//        Comparator <Shape> areaShapesComparator = (Shape o1, Shape o2) -> {
-//            return (int) (o1.area() - o2.area());
-//        };
+        Comparator <Shape> perimeterShapesComparator = new Comparator<Shape>() {
+            @Override
+            public int compare(Shape o1, Shape o2) {
+                return (int) (o1.perimeter()-o2.perimeter());
+            }
+        };
 
-        PerimeterShapesComparator perimeterShapesComparator = new PerimeterShapesComparator();
-        AreaShapesComparator areaShapesComparator = new AreaShapesComparator();
-        areaShapesComparator.thenComparing(perimeterShapesComparator);
+        Comparator <Shape> areaShapesComparator = new Comparator<Shape>() {
+            @Override
+            public int compare(Shape o1, Shape o2) {
+                return (int) (o1.area() - o2.area());
+            }
+        };
 
         Set<Shape> shapes = new TreeSet<>(areaShapesComparator);
 
@@ -33,12 +36,8 @@ public class Main {
 
         Collections.sort(shapeList, perimeterShapesComparator);
 
-        System.out.println(perimeterShapesComparator);
-        System.out.println(areaShapesComparator);
         System.out.println(shapeList);
-
         System.out.println(shapes);
-
 
     }
 }
