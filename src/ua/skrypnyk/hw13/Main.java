@@ -18,7 +18,7 @@ public class Main {
                 return (int) (o1.area() - o2.area());
             }
         };
-        perimeterShapesComparator.thenComparing(areaShapesComparator);
+        areaShapesComparator.thenComparing(perimeterShapesComparator);
 
         Set<Shape> shapes = new TreeSet<>(areaShapesComparator);
 
