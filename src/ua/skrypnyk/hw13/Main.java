@@ -4,20 +4,8 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-
-        Comparator <Shape> perimeterShapesComparator = new Comparator<Shape>() {
-            @Override
-            public int compare(Shape o1, Shape o2) {
-                return (int) (o1.perimeter()-o2.perimeter());
-            }
-        };
-
-        Comparator <Shape> areaShapesComparator = new Comparator<Shape>() {
-            @Override
-            public int compare(Shape o1, Shape o2) {
-                return (int) (o1.area() - o2.area());
-            }
-        };
+        Comparator <Shape> perimeterShapesComparator = (Shape o1, Shape o2)  -> (int) (o1.perimeter()-o2.perimeter());
+        Comparator <Shape> areaShapesComparator = (Shape o1, Shape o2)  -> (int) (o1.area()-o2.area());
         areaShapesComparator.thenComparing(perimeterShapesComparator);
 
         Set<Shape> shapes = new TreeSet<>(areaShapesComparator);
@@ -39,7 +27,6 @@ public class Main {
 
         System.out.println(shapeList);
         System.out.println(shapes);
-
     }
 }
 
