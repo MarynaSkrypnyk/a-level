@@ -1,6 +1,23 @@
 package src.reflection.skrypnyk;
 
 public class Student {
+    @ShowInfo
+    private String firstName;
+    @ShowInfo
+    private String lastName;
+    @ShowInfo
+    private int age;
+    @ShowInfo
+    private int examScore;
+
+    private int dateOfBirth;
+    public Student(String firstName, String lastName, int age, int examScore, int dateOfBirth) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.examScore = examScore;
+        this.dateOfBirth = dateOfBirth;
+    }
 
     public int getExamScore() {
         return examScore;
@@ -21,26 +38,9 @@ public class Student {
     public int getDateOfBirth() {
         return dateOfBirth;
     }
-
-    public Student(String firstName, String lastName, int age, int examScore, int dateOfBirth) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.examScore = examScore;
-        this.dateOfBirth = dateOfBirth;
+    private void passExamSuccessfully() {
+        this.examScore = 100;
     }
-
-    @ShowInfo
-    private String firstName;
-    @ShowInfo
-    private String lastName;
-    @ShowInfo
-    private int age;
-    @ShowInfo
-    private int examScore;
-
-    private int dateOfBirth;
-
     @Override
     public String toString() {
         return "Student{" +
@@ -50,9 +50,5 @@ public class Student {
                 ", examScore=" + examScore +
                 ", dateOfBirth=" + dateOfBirth +
                 '}';
-    }
-
-    private void passExamSuccessfully() {
-        this.examScore = 100;
     }
 }

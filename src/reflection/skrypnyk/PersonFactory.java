@@ -7,30 +7,33 @@ import java.lang.reflect.InvocationTargetException;
 public class PersonFactory {
 
     public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException, InstantiationException {
-        printFields(new Person("Name", 82, "Lviv"));
+        Person person = createPerson("First",1,"Lviv");
+        Person personSecond = createPerson("Second",2,"Kyiv");
+
+        printFields(person);
         System.out.println();
-        printFields(new Person("FirstName", 2, "Kyiv"));
+        printFields(personSecond);
+
     }
-
-
-    public static void printFields(Person person) throws IllegalAccessException, NoSuchFieldException {
-        Class<? extends Person> personInfo = Person.class;
-        Field fieldName = personInfo.getDeclaredField("name");
-        fieldName.setAccessible(true);
-        Object name = (String) fieldName.get(person);
-        System.out.println("Name: " + name);
-
-        Field fieldAge = personInfo.getDeclaredField("age");
-        fieldAge.setAccessible(true);
-        Object age = fieldAge.get(person);
-        System.out.println("Age: " + age);
-
-        Field fieldAddress = personInfo.getDeclaredField("address");
-        fieldAddress.setAccessible(true);
-        Object address = (String) fieldAddress.get(person);
-        System.out.println("Address: " + address);
-
+    public static Person createPerson(String name, int age, String address) throws InvocationTargetException, InstantiationException, IllegalAccessException {
+        try {
+            Constructor <Person> constructor = Person.class.getConstructor(String.class,int.class,String.class);
+            return constructor.newInstance(name,age,address);
+        } catch (NoSuchMethodException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static void printFields(Person person){
+        Class<? extends Person> personInfo = person.getClass();
+        Field [] fieldName = personInfo.getDeclaredFields();
+        for (Field declaredField : fieldName) {
+            declaredField.setAccessible(true);
+        }
+        System.out.println("Person name: " + person.getName());
+        System.out.println("Person age: "+ person.getAge());
+        System.out.println("Person address: " + person.getAddress());
     }
 }
+
 
 
