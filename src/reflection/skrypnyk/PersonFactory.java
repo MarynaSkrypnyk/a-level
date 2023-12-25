@@ -23,15 +23,17 @@ public class PersonFactory {
             throw new RuntimeException(e);
         }
     }
-    public static void printFields(Person person){
+    public static void printFields(Person person) throws IllegalAccessException {
         Class<? extends Person> personInfo = person.getClass();
         Field [] fieldName = personInfo.getDeclaredFields();
         for (Field declaredField : fieldName) {
             declaredField.setAccessible(true);
+
+            declaredField.getName();
+            Object o = declaredField.get(person);
+            System.out.println(o);
+
         }
-        System.out.println("Person name: " + person.getName());
-        System.out.println("Person age: "+ person.getAge());
-        System.out.println("Person address: " + person.getAddress());
     }
 }
 
