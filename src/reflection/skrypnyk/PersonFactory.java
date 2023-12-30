@@ -29,9 +29,8 @@ public class PersonFactory {
         for (Field declaredField : fieldName) {
             declaredField.setAccessible(true);
 
-            declaredField.getName();
-            Object o = declaredField.get(person);
-            System.out.println(o);
+
+            System.out.println(declaredField.getName() + ": " + declaredField.get(person));
 
         }
     }
