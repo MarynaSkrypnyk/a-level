@@ -1,25 +1,29 @@
 package org.example;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "booking",schema = "public")
+@ToString(exclude = "user")
+@Table(name ="booking")
+
 public class Booking {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
 
-        @Column(name = "text_booking",length = 65)
         private String bookingText;
 
-        @ManyToOne
+        @ManyToOne(cascade = CascadeType.ALL)
+        @JoinColumn(name = "user_id")
         private User user;
+
+        @Column(name = "booking_time")
+        private LocalDateTime bookingTime;
 }

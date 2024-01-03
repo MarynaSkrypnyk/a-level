@@ -11,20 +11,18 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table (name = "user",schema = "public")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "first_name",length = 65)
+
     private String firstname;
 
-    @Column(name = "last_name",length = 65)
+
     private String lastname;
 
-    @Setter
-    @Getter
-    @OneToMany
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List <Booking> bookings = new ArrayList<>();
 }

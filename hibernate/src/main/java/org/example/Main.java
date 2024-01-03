@@ -2,101 +2,96 @@ package org.example;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
+    private static SessionFactory sessionFactory;
 
-        Configuration configuration = Connection.getConfiguration();
-//       create(configuration);
-//        update(configuration);
-//        delete(configuration);
-//        findForId(configuration);
-        createNewOrder(configuration);
+    public static void main(String[] args) {
+        Configuration configuration = new Configuration();
+        configuration.configure();
+        sessionFactory = configuration.buildSessionFactory();
+//        create();
+//        update();
+//        delete();
+//        findForId();
+        createNewOrder();
 
     }
 
-    public static void create(Configuration configuration) {
-        try (SessionFactory sessionFactory = configuration.buildSessionFactory()) {
-            Session session = sessionFactory.openSession();
+    private static Session getSession() {
+        return sessionFactory.openSession();
+    }
+
+    public static void create() {
+        try (Session session = getSession()) {
             session.beginTransaction();
 
             User user = User.builder()
-                    .firstname("Drew")
-                    .lastname("Drew")
+                    .firstname("Ann")
+                    .lastname("Ann")
                     .build();
+
             session.save(user);
             session.getTransaction().commit();
-            session.close();
         }
+    sessionFactory.close();
     }
 
-    public static void update(Configuration configuration) {
-        try (SessionFactory sessionFactory = configuration.buildSessionFactory()) {
-            Session sessionUpdate = sessionFactory.openSession();
-            Transaction update = sessionUpdate.beginTransaction();
 
-            User userSecond = sessionUpdate.find(User.class, 1L);
+    public static void update() {
+       try (Session session = getSession()) {
+            session.beginTransaction();
+
+            User userSecond = session.find(User.class, 1L);
             userSecond.setFirstname("Ben");
-            sessionUpdate.update(userSecond);
+            session.update(userSecond);
 
-            update.commit();
-            sessionUpdate.close();
+            session.getTransaction().commit();
         }
+    sessionFactory.close();
     }
 
-    public static void delete(Configuration configuration) {
-        try (SessionFactory sessionFactory = configuration.buildSessionFactory()) {
-            Session sessionDelete = sessionFactory.openSession();
-            Transaction deleteTransaction = sessionDelete.beginTransaction();
-            User userThird = sessionDelete.find(User.class, 3L);
-            sessionDelete.delete(userThird);
+    public static void delete() {
+    try (Session session = getSession()) {
+            session.beginTransaction();
+            User userThird = session.find(User.class, 1L);
+            session.delete(userThird);
 
-            deleteTransaction.commit();
-            sessionDelete.close();
+            session.getTransaction().commit();
         }
+    sessionFactory.close();
     }
 
-    public static void findForId(Configuration configuration) {
-        try (SessionFactory sessionFactory = configuration.buildSessionFactory()) {
-            Session sessionFind = sessionFactory.openSession();
-            Transaction update = sessionFind.beginTransaction();
-            User userFour = sessionFind.find(User.class, 1L);
+    public static void findForId() {
+        try (Session session = getSession()) {
+          session.beginTransaction();
+
+            User userFour = session.find(User.class, 3L);
+
             System.out.println(userFour);
 
-            update.commit();
-            sessionFind.close();
+            session.getTransaction().commit();
         }
+    sessionFactory.close();
     }
 
-    private static void createNewOrder(Configuration configuration) {
-        try (SessionFactory sessionFactory = configuration.buildSessionFactory()) {
-            Session session = sessionFactory.openSession();
-            Transaction transaction = session.beginTransaction();
-            User userFirst = session.find(Booking.class, 1L).getUser();
-            System.out.println(userFirst);
+    private static void createNewOrder() {
+        try (Session session = getSession()) {
+            session.beginTransaction();
 
-            Booking firstBooking = new Booking();
-            firstBooking.setBookingText("Skirt");
-            Booking secondBooking = new Booking();
-            secondBooking.setBookingText("Socks");
+            User user = session.get(User.class, 2L);
 
-            User user =  new User();
-            user.setFirstname("Ann");
-            user.setLastname("Ann");
-            user.getBookings().add(firstBooking);
-            user.getBookings().add(secondBooking);
+            Booking booking = Booking.builder()
+                    .bookingText("Short")
+                    .user(user)
+                    .build();
 
-
-            session.save(firstBooking);
-            session.save(secondBooking);
-            session.save(user);
-
-            session.close();
+            session.persist(booking);
+         }
+       sessionFactory.close();
         }
     }
-}
 
