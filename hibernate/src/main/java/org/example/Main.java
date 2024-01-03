@@ -6,25 +6,20 @@ import org.hibernate.cfg.Configuration;
 
 import java.util.List;
 
+import static org.example.Connection.getSession;
+import static org.example.Connection.sessionFactory;
+
 public class Main {
-    private static SessionFactory sessionFactory;
+
 
     public static void main(String[] args) {
-        Configuration configuration = new Configuration();
-        configuration.configure();
-        sessionFactory = configuration.buildSessionFactory();
-//        create();
+        create();
 //        update();
 //        delete();
 //        findForId();
-        createNewOrder();
+//        createNewOrder();
 
     }
-
-    private static Session getSession() {
-        return sessionFactory.openSession();
-    }
-
     public static void create() {
         try (Session session = getSession()) {
             session.beginTransaction();
