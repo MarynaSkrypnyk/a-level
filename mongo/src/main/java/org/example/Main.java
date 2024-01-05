@@ -12,9 +12,9 @@ import java.util.logging.Filter;
 
 public class Main {
     public static void main(String[] args) throws JsonProcessingException {
-        MongoClient mongoClient = MongoClients.create("mongodb://mstareva:123456789@localhost:27017");
+        MongoClient mongoClient = MongoClients.getCreate();
         MongoDatabase database = mongoClient.getDatabase("test");
-        MongoCollection <Document> collection = database.getCollection("human");
+        MongoCollection<Document> collection = database.getCollection("human");
 
         Human human = new Human("Antony",45,"NY");
         ObjectMapper mapper = new ObjectMapper();
