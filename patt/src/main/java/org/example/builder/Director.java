@@ -2,13 +2,15 @@ package org.example.builder;
 
 public class Director {
     ComputerBuilder builder;
+
     public void setBuilder(ComputerBuilder builder) {
         this.builder = builder;
     }
-    Computer buildComputer(){
+
+    Computer buildComputer() {
         builder.createComputer();
         builder.buildProsssesor();
-        builder.buildRAM();
+        builder.buildRam();
         builder.buildPDisk();
         Computer computer = builder.getComputer();
         return computer;

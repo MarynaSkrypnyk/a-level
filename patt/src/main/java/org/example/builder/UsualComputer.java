@@ -6,8 +6,8 @@ public class UsualComputer extends ComputerBuilder{
         computer.setProssesor("Prossesor Usual");
     }
     @Override
-    void buildRAM() {
-        computer.setRAM(RAM.RAMSECOND);
+    void buildRam() {
+        computer.setRam(RAM.RAMSECOND);
     }
     @Override
     void buildPDisk() {

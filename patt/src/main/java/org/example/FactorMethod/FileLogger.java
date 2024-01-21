@@ -2,7 +2,10 @@ package org.example.FactorMethod;
 
 public class FileLogger implements Logger{
     @Override
-    public void createLogger() {
-        System.out.println("Create logger in FileLogger");
+    public void log() {
+    }
+    @Override
+    public void write() {
+        System.out.println("FileLogger create");
     }
 }

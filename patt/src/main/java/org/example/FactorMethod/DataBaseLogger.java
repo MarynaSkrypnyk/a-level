@@ -1,8 +1,13 @@
 package org.example.FactorMethod;
 
 public class DataBaseLogger implements Logger{
+
     @Override
-    public void createLogger() {
-        System.out.println("Create logger in DataBase");
+    public void log() {
+    }
+
+    @Override
+    public void write() {
+        System.out.println("DataBaseLogger create");
     }
 }

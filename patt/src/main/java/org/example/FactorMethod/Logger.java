@@ -1,4 +1,5 @@
 package org.example.FactorMethod;
 public interface Logger {
-    void createLogger();
+    void log();
+    void write();
 }

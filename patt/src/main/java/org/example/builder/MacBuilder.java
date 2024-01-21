@@ -7,8 +7,8 @@ public class MacBuilder extends ComputerBuilder{
         computer.setProssesor("Prossesor Mac");
     }
     @Override
-    void buildRAM() {
-        computer.setRAM(RAM.RAMONE);
+    void buildRam() {
+        computer.setRam(RAM.RAMONE);
     }
     @Override
     void buildPDisk() {

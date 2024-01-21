@@ -1,14 +1,13 @@
 package org.example.deepcopy;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.example.deepcopy.Address;
-
+@NoArgsConstructor
+@AllArgsConstructor
 public class People implements Cloneable {
     private String name;
     private Address adress;
-    public People(String name, Address adress) {
-        this.name = name;
-        this.adress = adress;
-    }
 
     public String getName() {
         return name;
@@ -28,7 +27,10 @@ public class People implements Cloneable {
 
     @Override
     public Object clone() throws CloneNotSupportedException {
-        return super.clone();
+       People people = new People();
+       Address address = new Address(getAdress().getAdress());
+       people.setAdress(address);
+       return people;
     }
 
     @Override

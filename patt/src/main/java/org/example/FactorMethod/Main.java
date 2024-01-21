@@ -2,9 +2,9 @@ package org.example.FactorMethod;
 
 public class Main {
     public static void main(String[] args) {
-        LoggerFactory loggerFactory = creteLoggerBySpecialty("pkp");
-        Logger logger = loggerFactory.writeLogger();
-        logger.createLogger();
+        LoggerFactory loggerFactory = creteLoggerBySpecialty("dataBase");
+        Logger logger = loggerFactory.createLogger();
+        logger.write();
     }
 
     static LoggerFactory creteLoggerBySpecialty(String specialty){
